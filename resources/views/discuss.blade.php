@@ -1,23 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading text-center">Create a new discuss</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                  <form class="" action="{{ route('discussions.store')}}" method="post">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                      <label for="channel"> Choose a channel</label>
+                      <select class="form-control" id="channel_id" name="channel_id">
+                        @foreach($channels as $channel)
+                          <option value="{{$channel->id}}">{{$channel->title}}</option>
+                        @endforeach
+                      </select>
+                    </div>
 
-                    You are logged in!
+                    <div class="form-group">
+                      <label for="content">Question ?</label>
+                      <textarea name="content" id="content" rows="8" cols="80" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success pull-right" name="button">Create discussion</button>
+                    </div>
+                  </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
 @endsection
