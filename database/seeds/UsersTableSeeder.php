@@ -18,5 +18,12 @@ class UsersTableSeeder extends Seeder
           'email'=>'admin@test.com',
           'admin'=> 1
         ]);
+
+        App\User::create([
+          'name' =>'Kesi P',
+          'avatar'=>'some link',
+          'password'=>bcrypt('12345678'),
+          'email'=>'kesi@p.com',
+        ]);
     }
 }
