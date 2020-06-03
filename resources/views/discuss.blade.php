@@ -8,6 +8,12 @@
                 <div class="panel-body">
                   <form class="" action="{{ route('discussions.store')}}" method="post">
                     {{ csrf_field() }}
+
+                    <div class="form-group">
+                      <label for="content">Title</label>
+                      <input type="text" name="title" class="form-control">
+                    </div>
+
                     <div class="form-group">
                       <label for="channel"> Choose a channel</label>
                       <select class="form-control" id="channel_id" name="channel_id">
