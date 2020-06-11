@@ -40,6 +40,13 @@
               {{ $reply->content}}
             </h6>
           </div>
+          <div class="panel-footer">
+            @if($reply->is_like_by_auth_user())
+                <a href="/" class="btn btn-danger">Unlike</a>
+            @else
+                <a href="/" class="btn btn-primary">Like</a>
+            @endif
+          </div>
         </div>
 
 
